@@ -147,17 +147,19 @@ function importNewGrid(str) {
     let grid = new Grid(parseInt(split[0]), parseInt(split[1]));
     if (split.length > 2) {
         if (parseInt(split[2])=== 7) {
-            var numRows = Math.floor(grid.h/2+0.1);
+            var numRows = Math.floor(grid.h / 2 + 0.1);
+            var triDensity = 0.4;
             if (split.length > 6) { numRows = Math.min(grid.h, parseInt(split[6])); }
+            if (split.length > 7) { tridensity = parseInt(split[7])/100.0; }
             for (let j = grid.h - 1; j > grid.h - 1-numRows; j--) {
                 for (let k = 0; k < grid.w; k++) {
                     var r = Math.random();
                     var s = Math.random();
-                    if (r < 0.3) {
+                    if (r < 0.5-triDensity/2) {
                         grid.grid[j][k].setTriFromS(Math.floor(7 * Math.random()), 0);
                         grid.grid[j][k].setTriFromS(Math.floor(7 * Math.random()), 3);
                     }
-                    else if (r < 0.7) {
+                    else if (r < 0.5+triDensity/2) {
                         grid.grid[j][k].setTriFromS(Math.floor(7*Math.random()), Math.floor(4 * s));
                     }
                 }
