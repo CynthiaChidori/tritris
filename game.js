@@ -727,7 +727,7 @@ function importMap() {
         game.grid = g;
         game.redraw = true;
         let split = String(v.value).split(":");
-        if (split.length > 2 && split[2] === "b") {
+        if (split.length > 2 && parseInt(split[2]) === 7) {
             this.btype = true;
         }
         if (split.length > 3) {

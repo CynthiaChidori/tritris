@@ -146,7 +146,7 @@ function importNewGrid(str) {
     let split = str.split(':');
     let grid = new Grid(parseInt(split[0]), parseInt(split[1]));
     if (split.length > 2) {
-        if (split[2] === "b") {
+        if (parseInt(split[2])=== 7) {
             var numRows = Math.floor(grid.h/2+0.1);
             if (split.length > 6) { numRows = Math.min(grid.h, parseInt(split[6])); }
             for (let j = grid.h - 1; j > grid.h - 1-numRows; j--) {
