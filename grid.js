@@ -152,11 +152,11 @@ function importNewGrid(str) {
                     var r = Math.random();
                     var s = Math.random();
                     if (r < 0.3) {
-                        grid.grid[j][k].setTriFromS(6, 0);
-                        grid.grid[j][k].setTriFromS(6, 3);
+                        grid.grid[j][k].setTriFromS(Math.floor(7 * Math.random()), 0);
+                        grid.grid[j][k].setTriFromS(Math.floor(7 * Math.random()), 3);
                     }
                     else if (r < 0.7) {
-                        grid.grid[j][k].setTriFromS(6, Math.floor(4 * s));
+                        grid.grid[j][k].setTriFromS(Math.floor(7*Math.random()), Math.floor(4 * s));
                     }
                 }
             }
