@@ -150,7 +150,7 @@ function importNewGrid(str) {
             var numRows = Math.floor(grid.h / 2 + 0.1);
             var triDensity = 0.4;
             if (split.length > 6) { numRows = Math.min(grid.h, parseInt(split[6])); }
-            if (split.length > 7) { tridensity = parseInt(split[7])/100.0; }
+            if (split.length > 7) { triDensity = parseInt(split[7])/100.0; }
             for (let j = grid.h - 1; j > grid.h - 1-numRows; j--) {
                 for (let k = 0; k < grid.w; k++) {
                     var r = Math.random();
