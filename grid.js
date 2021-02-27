@@ -146,8 +146,10 @@ function importNewGrid(str) {
     let split = str.split(':');
     let grid = new Grid(parseInt(split[0]), parseInt(split[1]));
     if (split.length > 2) {
-        if (parseInt(split[2][0]) === 7) {
-            for (let j = grid.h-1; j > grid.h-5; j--) {
+        if (split[2] === "b") {
+            var numRows = Math.floor(grid.h/2+0.1);
+            if (split.length > 6) { numRows = Math.min(grid.h, parseInt(split[6])); }
+            for (let j = grid.h - 1; j > grid.h - 1-numRows; j--) {
                 for (let k = 0; k < grid.w; k++) {
                     var r = Math.random();
                     var s = Math.random();
@@ -160,10 +162,12 @@ function importNewGrid(str) {
                     }
                 }
             }
+           
         }
         else for (let i in split[2]) {
             grid.grid[parseInt(i/4.0/grid.w)][parseInt(i/4.0%grid.w)].setTriFromS(split[2][i], parseInt(i%4))
         }
+
     }
     return grid;
 }

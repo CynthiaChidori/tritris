@@ -727,7 +727,7 @@ function importMap() {
         game.grid = g;
         game.redraw = true;
         let split = String(v.value).split(":");
-        if (split.length > 2 && split[2] === 7) {
+        if (split.length > 2 && split[2] === "b") {
             this.btype = true;
         }
         if (split.length > 3) {
@@ -738,6 +738,7 @@ function importMap() {
             for (let n of bag) {
                 overrideBag.push(parseInt(n));
             }
+            if (split.length > 5) { this.goal = parseInt(split[4]);}
             if (split.length > 4) {
                 gameOptions.AutoSetMap = split[4].length >= 1 && split[4][0] > 0;
                 gameOptions.PlacePieces = split[4].length < 2 || split[4][1] > 0;
