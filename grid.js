@@ -147,8 +147,18 @@ function importNewGrid(str) {
     let grid = new Grid(parseInt(split[0]), parseInt(split[1]));
     if (split.length > 2) {
         if (parseInt(split[2][0]) === 7) {
-            for (let k = 0; k < grid.w; k++) {
-                grid.grid[grid.h - 1][k].setTriFromS(6, 0);
+            for (let j = grid.h-1; j > grid.h-5; j--) {
+                for (let k = 0; k < grid.w; k++) {
+                    var r = Math.random();
+                    var s = Math.random();
+                    if (r < 0.3) {
+                        grid.grid[j][k].setTriFromS(6, 0);
+                        grid.grid[j][k].setTriFromS(6, 3);
+                    }
+                    else if (r < 0.7) {
+                        grid.grid[j][k].setTriFromS(6, Math.floor(4 * s));
+                    }
+                }
             }
         }
         else for (let i in split[2]) {
