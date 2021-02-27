@@ -146,7 +146,7 @@ function importNewGrid(str) {
     let split = str.split(':');
     let grid = new Grid(parseInt(split[0]), parseInt(split[1]));
     if (split.length > 2) {
-        if (parseInt(split[2][i][0]) === 7) {
+        if (parseInt(split[2][0]) === 7) {
             for (let k = 0; k < grid.w; k++) {
                 grid.grid[grid.h - 1][grid.w].setTriFromS(6, 0);
             }
