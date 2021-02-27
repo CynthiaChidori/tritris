@@ -20,7 +20,7 @@ class Game {
         this.startLevel = level;
         this.level = level;
         this.lines = 0;
-        this.goal = 3;
+        this.goal = 15;
         this.score = 0;
         this.scoreWeights = { 1: 100, 2: 400, 3: 1200 };
 
