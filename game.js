@@ -13,13 +13,14 @@ class Game {
         this.grid = new Grid(this.w, this.h);
 
         this.alive = true;
-
+        this.btype = false;
         if (level < 0) level = 0;
         if (level > 29) level = 29;
         if (level >= 20 && level <= 28) level = 19; //Can only start on 0-19 or 29
         this.startLevel = level;
         this.level = level;
         this.lines = 0;
+        this.goal = 15;
         this.score = 0;
         this.scoreWeights = { 1: 100, 2: 400, 3: 1200 };
 
@@ -168,7 +169,7 @@ class Game {
             this.spawnNextPiece += this.maxAnimationTime;
             if (!this.practice) { //No lines or score in practice mode
                 this.lines += this.animatingLines.length;
-
+                if (this.btype && this.lines >= this.goal) { alive = false; }
                 //Increase the level after a certain amt of lines, then every 10 lines
                 let incLevel = false;
                 if (this.level == this.startLevel) {
@@ -726,6 +727,9 @@ function importMap() {
         game.grid = g;
         game.redraw = true;
         let split = String(v.value).split(":");
+        if (split.length > 2 && split[2] === 7) {
+            this.btype = true;
+        }
         if (split.length > 3) {
             overrideMode = parseInt(split[3][0]);
             overrideNum = -1;
