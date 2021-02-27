@@ -20,7 +20,7 @@ class Game {
         this.startLevel = level;
         this.level = level;
         this.lines = 0;
-        this.goal = 15;
+        this.goal = 3;
         this.score = 0;
         this.scoreWeights = { 1: 100, 2: 400, 3: 1200 };
 
@@ -728,7 +728,7 @@ function importMap() {
         game.redraw = true;
         let split = String(v.value).split(":");
         if (split.length > 2 && parseInt(split[2]) === 7) {
-            this.btype = true;
+            game.btype = true;
         }
         if (split.length > 3) {
             overrideMode = parseInt(split[3][0]);
@@ -738,7 +738,7 @@ function importMap() {
             for (let n of bag) {
                 overrideBag.push(parseInt(n));
             }
-            if (split.length > 5) { this.goal = parseInt(split[5]);}
+            if (split.length > 5) { game.goal = parseInt(split[5]);}
             if (split.length > 4) {
                 gameOptions.AutoSetMap = split[4].length >= 1 && split[4][0] > 0;
                 gameOptions.PlacePieces = split[4].length < 2 || split[4][1] > 0;
