@@ -169,7 +169,7 @@ class Game {
             this.spawnNextPiece += this.maxAnimationTime;
             if (!this.practice) { //No lines or score in practice mode
                 this.lines += this.animatingLines.length;
-                if (this.btype && this.lines >= this.goal) { alive = false; }
+                if (this.btype && this.lines >= this.goal) { this.alive = false; }
                 //Increase the level after a certain amt of lines, then every 10 lines
                 let incLevel = false;
                 if (this.level == this.startLevel) {
