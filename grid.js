@@ -145,12 +145,17 @@ class Grid {
 function importNewGrid(str) {
     let split = str.split(':');
     let grid = new Grid(parseInt(split[0]), parseInt(split[1]));
-    if (split.length > 2){
-        for (let i in split[2]) {
+    if (split.length > 2) {
+        if (parseInt(split[2][i][0]) === 7) {
+            for (let k = 0; k < grid.w; k++) {
+                grid.grid[grid.h - 1][grid.w].setTriFromS(6, 0);
+            }
+        }
+        else for (let i in split[2]) {
             grid.grid[parseInt(i/4.0/grid.w)][parseInt(i/4.0%grid.w)].setTriFromS(split[2][i], parseInt(i%4))
         }
     }
-    return grid
+    return grid;
 }
 
 class GridCell {
